@@ -1,4 +1,5 @@
 # student-front : in relation with repo => [student-back](https://github.com/othman-bouazzaoui/student-back)
+If you want to test the project try to reassure that you are on the right branch whether in student-front or student-back.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
