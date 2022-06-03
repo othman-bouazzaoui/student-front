@@ -1,0 +1,48 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div>
+                <button class="btn btn-success m-1" (click)="allStudents()"> Resfresh Data</button>
+                <button class="btn btn-dark" (click)="addNewStudent()">Add new Student</button>
+            </div>
+
+            <form class="d-flex" #f="ngForm">
+                <input ngModel name="id" class="form-control me-2" type="search" placeholder="Search by id"
+                    aria-label="Search">
+                <button (click)="findStudentById(f.value)" class="btn btn-outline-success">Search</button>
+            </form>
+        </div>
+    </nav>
+    <ng-container *ngIf="students | async as data">
+        <table class="table table-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Gender</th>
+                    <th>Date Naissance</th>
+                    <th>Suppression</th>
+                    <th>Modification</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let student of data.students">
+                    <td>{{student.id}}</td>
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.dateNaissance}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="onDelete(student)">delete</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="onUpdate(student)">update</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </ng-container>
+</div>
